@@ -1,0 +1,31 @@
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+public class SeleniumDemo {
+
+	public static void main(String[] args) throws InterruptedException {
+		
+		System.setProperty ("webdriver.chrome.driver" ,"F:\\4.SeleniumPractice\\SeleniumWebDriverDemo\\drivers\\chromedriver.exe" );
+		WebDriver driver = new ChromeDriver();
+
+			
+			driver.get("http://www.omayo.blogspot.com");
+			driver.manage().window().maximize();
+			 
+			driver.findElement(By.name("q")).sendKeys("Keerthi HK");
+			
+			WebElement element = driver.findElement(By.cssSelector("input[value='Search']"));
+			element.click();
+			
+			WebElement elementOne = driver.findElement(By.name("fname"));
+			elementOne.clear();
+			elementOne.sendKeys("Jai Hanuman");
+			
+			WebElement elementTwo = driver.findElement(By.partialLinkText("Compen"));
+			elementTwo.clear();
+			elementTwo.sendKeys("Jai Hanuman");
+			
+			Thread.sleep(3000);
+	}
+}

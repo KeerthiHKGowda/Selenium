@@ -1,0 +1,97 @@
+import java.util.List;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class SeleniumDemo {
+
+	public static void main(String[] args) throws InterruptedException {
+
+//		System.setProperty("webdriver.chrome.driver",
+//				"F:\\4.SeleniumPractice\\SeleniumWebDriverDemo\\drivers\\chromedriver.exe");
+//		WebDriver driver = new ChromeDriver();
+		
+		System.setProperty("webdriver.gecko.driver",
+				"F:\\4.SeleniumPractice\\SeleniumWebDriverDemo\\drivers\\geckodriver.exe");
+		WebDriver driver = new FireFoxDriver();
+		
+		
+		
+
+		driver.get("http://www.omayo.blogspot.com");
+		driver.manage().window().maximize();
+
+		Thread.sleep(3000);
+
+		WebElement elementOne = driver.findElement(By.name("fname"));
+		elementOne.clear();
+		elementOne.sendKeys("Jai Hanuman");
+
+		WebElement elementTwo = driver.findElement(By.partialLinkText("compen"));
+		elementTwo.click();
+
+		Thread.sleep(3000);
+
+//		WebElement elementThree = driver.findElement(By.xpath("//input[@id='confirm']"));
+//		elementThree.click();
+
+		driver.navigate().back();
+		Thread.sleep(5000);
+
+		driver.navigate().forward();
+		Thread.sleep(5000);
+		
+		driver.navigate().back();
+		Thread.sleep(5000);
+
+		driver.navigate().refresh();
+
+		String str = driver.getTitle();
+		System.out.println(str);
+
+		String strUrl = driver.getCurrentUrl();
+		System.out.println(strUrl);
+
+		Thread.sleep(5000);
+
+		
+//		String strAttribute = driver.findElement(By.name("fname")).getAttribute("value");
+//		System.out.println(strAttribute);
+
+		boolean b = driver.findElement(By.id("but2")).isDisplayed();
+		System.out.println(b);
+
+		boolean c = driver.findElement(By.id("hbutton")).isDisplayed();
+		System.out.println(c);
+
+		boolean buttonOne = driver.findElement(By.id("but2")).isEnabled();
+		System.out.println(buttonOne); 
+
+		boolean buttonTwo = driver.findElement(By.id("hbutton")).isEnabled();
+		System.out.println(buttonTwo); 
+
+		boolean checkboxb = driver.findElement(By.xpath("//input[@name='vehicle'][2]")).isSelected();
+		System.out.println(checkboxb);
+
+		boolean checkboxc = driver.findElement(By.xpath("//input[@name='vehicle'][1]")).isSelected();
+		System.out.println(checkboxc);
+
+//		String strB = driver.getPageSource();
+//		System.out.println(strB);
+		
+		
+		
+		List<WebElement> elements  = driver.findElements(By.tagName("a"));
+		
+		for(int i=0; i<elements.size(); i++) {
+			System.out.println(elements.get(i).getText());
+		}
+		
+		for (WebElement i: elements) {
+			i.getText();
+		}
+		driver.quit();
+	}
+}

@@ -1,0 +1,43 @@
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class SeleniumDemo {
+
+	public static void main(String[] args) throws InterruptedException {
+
+		System.setProperty("webdriver.chrome.driver",
+				"F:\\4.SeleniumPractice\\SeleniumWebDriverDemo\\drivers\\chromedriver.exe");
+		WebDriver driver = new ChromeDriver();
+
+		driver.get("http://www.omayo.blogspot.com");
+		driver.manage().window().maximize();
+
+
+		WebElement elementOne = driver.findElement(By.name("fname"));
+		elementOne.clear();
+		elementOne.sendKeys("Jai Hanuman");
+
+		WebElement elementTwo = driver.findElement(By.partialLinkText("compen"));
+		elementTwo.click();
+
+		Thread.sleep(3000);
+
+//		WebElement elementThree = driver.findElement(By.xpath("//input[@id='confirm']"));
+//		elementThree.click();
+
+		driver.get("http://www.omayo.blogspot.com");
+
+		String str = driver.getTitle();
+		System.out.println(str);
+
+		String strA = driver.getCurrentUrl();
+		System.out.println(strA);
+
+		String strB = driver.getPageSource();
+		System.out.println(strB);
+
+
+	}
+}
