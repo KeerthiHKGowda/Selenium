@@ -32,6 +32,7 @@ public class WaitingMechanisms {
 
 		driver.findElement(By.linkText("Facebook")).click();
 
-		
+		Thread.sleep(3000);
+		driver.close();	
 	}
 }
