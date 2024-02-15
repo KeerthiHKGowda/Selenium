@@ -10,6 +10,11 @@
 	<classpathentry kind="lib" path="Library/client-combined-3.141.59.jar"/>
 	<classpathentry kind="lib" path="Library/client-combined-3.141.59-sources.jar"/>
 	<classpathentry kind="lib" path="Library/commons-exec-1.3.jar"/>
+	<classpathentry kind="lib" path="Library/commons-io-2.15.1.jar"/>
+	<classpathentry kind="lib" path="Library/commons-io-2.15.1-javadoc.jar"/>
+	<classpathentry kind="lib" path="Library/commons-io-2.15.1-sources.jar"/>
+	<classpathentry kind="lib" path="Library/commons-io-2.15.1-tests.jar"/>
+	<classpathentry kind="lib" path="Library/commons-io-2.15.1-test-sources.jar"/>
 	<classpathentry kind="lib" path="Library/guava-25.0-jre.jar"/>
 	<classpathentry kind="lib" path="Library/okhttp-3.11.0.jar"/>
 	<classpathentry kind="lib" path="Library/okio-1.14.0.jar"/>
