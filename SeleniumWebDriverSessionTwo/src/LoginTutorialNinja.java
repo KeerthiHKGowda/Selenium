@@ -17,15 +17,14 @@ public class LoginTutorialNinja {
 		WebElement pwd = driver.findElement(By.name("password"));
 		WebElement login = driver.findElement(By.xpath("//input[@value='Login']"));
 		Actions action = new Actions(driver);
-		
+
 		email.sendKeys("asdsad@gmail.com");
 		pwd.sendKeys("asdasd");
-		pwd.sendKeys(Keys.chord(Keys.CONTROL,"z"));
+		pwd.sendKeys(Keys.chord(Keys.CONTROL, "z"));
 		Thread.sleep(3000);
 		pwd.sendKeys("asdasd");
-		action.sendKeys(Keys.TAB).sendKeys(Keys.ENTER).build().perform();
-
-
+//		action.sendKeys(Keys.TAB).sendKeys(Keys.ENTER).build().perform();
+		login.click();
 	}
 
 }

@@ -100,5 +100,3 @@ public class Demo {
 
 }
 
-
-Complete this by complete shoping by mac book since iphone is not available.
