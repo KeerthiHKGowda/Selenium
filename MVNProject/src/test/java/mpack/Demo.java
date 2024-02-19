@@ -1,5 +1,8 @@
 package mpack;
+import java.io.FileInputStream;
 import java.time.Duration;
+import java.util.Properties;
+import java.io.IOException;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
@@ -7,23 +10,27 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.WebDriver;
 import io.github.bonigarcia.wdm.WebDriverManager;
+
 public class Demo {
 
-	public static void main(String[] args) throws InterruptedException {
+	public static void main(String[] args) throws InterruptedException, IOException {
 
 		WebDriverManager.chromedriver().setup();
 		WebDriver driver = new ChromeDriver();
 		
-
-		driver.get("http://tutorialsninja.com/demo/");
+		Properties prop = new Properties(); 
+		FileInputStream fis = new FileInputStream("data.properties");
+		prop.load((fis));
+		
+		driver.get(prop.getProperty("url"));
 		driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 	
 
 		driver.findElement(By.xpath("//a[@title='My Account']")).click();
-		driver.findElement(By.linkText("Login")).click();
-		driver.findElement(By.id("input-email")).sendKeys("keerthihk97@gmail.com");
-		driver.findElement(By.id("input-password")).sendKeys("Keerthihk97!");
+		driver.findElement(By.linkText("Login")).click(); 
+		driver.findElement(By.id("input-email")).sendKeys(prop.getProperty("email"));
+		driver.findElement(By.id("input-password")).sendKeys(prop.getProperty("password"));
 
 		Thread.sleep(3000);
 		driver.findElement(By.xpath("//input[@value='Login']")).click();
